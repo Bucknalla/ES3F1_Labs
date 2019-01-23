@@ -24,7 +24,7 @@ Created an HDL project in Xilinx Vivado to instantiate the Processing Unit and t
    3. Accept these options by pressing **Finish**
 
 3. Create empty block design inside the new project
-   1. Add the **ZYNQ7 Processing System** IP core and the **Processor System Reset** IP Core. Connect the *slowest_sync_clk* to the *M_AXI_GP0_ACLK* and the *FCLK_CLK0*. Also ensure that the *ext_reset_in* is connected to *FCLK_CLK0*. Run the **Block Automation**, accepting the default settings.
+   1. Add the **ZYNQ7 Processing System** IP core and the **Processor System Reset** IP Core. Connect the *slowest_sync_clk* to the *M_AXI_GP0_ACLK* and the *FCLK_CLK0*. Also ensure that the *ext_reset_in* is connected to *FCLK_RESET0_N*. Run the **Block Automation**, accepting the default settings.
 
       ![vivado_3](../img/vivado_3.png)
 
