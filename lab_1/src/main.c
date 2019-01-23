@@ -126,6 +126,6 @@ int main()
   /* printing text over serial is clock cycle expensive and introduces additional overhead */
   printf("\nMultiplication was run under DEBUG, timer is no longer accurate.\n\r");
 #endif
-
+	cleanup_platform();
   return 0;
 }
