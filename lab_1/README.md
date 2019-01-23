@@ -33,7 +33,7 @@ void example(){
 
 - Hint: Think about how to measure a time interval. You will need to take a reading before and after the event, to find the difference.
 
-2. Create a C function that takes a int pointer to a pointer and initialises each of the elements in the passed 2D array (**which represents a matrix**) with a random integer using the rand() function. Make sure to allocate memory for each 2D array (both rows and columns!). Don't forget to seed your rand() function with srand(YOUR_SEED_VALUE) to ensure that you don't get the same results each time the program runs.
+2. Create a C function that takes a int pointer to a pointer and initialises each of the elements in the passed 2D array (**which represents a matrix**) with a random integer using the `rand()` function. Make sure to allocate memory for each 2D array (both rows and columns!). Don't forget to seed your `rand()` function with `srand(YOUR_SEED_VALUE)` to ensure that you don't get the same results each time the program runs.
 
 - Hint: Ideally you want YOUR_SEED_VALUE to be a different number each time you start your application.
 
@@ -41,7 +41,7 @@ void example(){
 
 - Hint: Use loop (or possibly multiple loops) along with `xil_printf("%d", tVariable);` to increment through the rows and columns of your matrix
 
-3. Allow for a macro to set the size of the input 2D array (i.e. #define SIZE). We'll use this to see the effect on matrix size against the required clock cycles for computation.
+3. Allow for a macro to set the size of the input 2D array (i.e. `#define SIZE`). We'll use this to see the effect on matrix size against the required clock cycles for computation.
 
 4. Write a function that takes 3 array pointers and multiplies the first two together, storing the result in the 3rd. 
 
@@ -49,7 +49,7 @@ void example(){
 
 6. Format and print your output solution matrix to the serial console. Do this outside of your timer so as not to affect the timing operation.
 
-7. Don't forget to deallocate memory and run "cleanup_platform()" at the end of your program to release any used instances from memory.
+7. Don't forget to deallocate memory and run `cleanup_platform()` at the end of your program to release any used instances from memory.
 
 Note - You can print data to the serial terminal (within the Xilinx SDK) using the "xil_printf.h" library. This function however does not support floating point values, so you will need to use printf() from the <stdio.h> library with standard "%f" formatting, instead.
 
