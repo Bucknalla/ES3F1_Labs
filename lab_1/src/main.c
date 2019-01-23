@@ -2,14 +2,13 @@
 #include "platform.h"
 #include "xparameters.h"
 #include "xtime_l.h"
-#include <time.h>
 #include <stdlib.h>
 #include "xil_printf.h"
 
 /* uncomment to see each stage of multiplication */
 //#define DEBUG
 
-#define SIZE 10
+#define SIZE 5
 #define MAX_VAL 10
 #define MIN_VAL 0
 
@@ -28,7 +27,7 @@ void generate(int **array)
     xil_printf("\n\r");
   }
   xil_printf("\n\r");
-}
+};
 
 void multiply(int **array_x, int **array_y, int **array_z)
 {
@@ -126,6 +125,6 @@ int main()
   /* printing text over serial is clock cycle expensive and introduces additional overhead */
   printf("\nMultiplication was run under DEBUG, timer is no longer accurate.\n\r");
 #endif
-	cleanup_platform();
+  cleanup_platform();
   return 0;
 }
