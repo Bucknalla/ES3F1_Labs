@@ -30,7 +30,7 @@ void example(){
 
    XTime_GetTime(&tVariable);
 
-   xil_printf("%d", tVariable);
+   xil_printf("%lld", tVariable);
 
 }
 ```
