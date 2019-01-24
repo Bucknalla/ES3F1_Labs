@@ -6,6 +6,10 @@
 
 Lab 1 is an introduction to Xilinx's Zynq SoC Architecture using the Digilent Zybo Z7-20 series FPGA boards. We'll walk through setting up the processing system in hardware, exporting this from Vivado to the Xilinx SDK environment and writing some software in C to run on one of the ARM cores.
 
+### **Getting Started**
+
+If you have not set up a project/hardware design from Vivado and exported it to the SDK, start with the [Vivado Guide](rtl/README.md) to generate a bitstream. Once this has generated follow the guide to the [SDK Guide](src/README.md) to complete the steps for compiling and running software on the Zynq.
+
 ### **Objectives**
 
 Successfully export a basic Processing System layer in hardware to the SDK in order to write a C program that computes the multiplication of two square matrices and returns the solution + the time taken for program execution.
