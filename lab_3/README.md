@@ -4,7 +4,7 @@
 
 ### **ES3F1 Lab 3**
 
-Lab 3 uses makes use of the MIPI (CSI) camera interface on the Zybo Z7 20 board to demonstrate using hardware acceleration and prepare you for the assignment. We'll be using an example project from Digilent as a starting point for our block diagram as it gives us the basic routing for the physical interface required to talk to the camera. We'll then move onto looking at how we can modify this block diagram to add our own logic into the camera's datapath.
+Lab 3 makes use of the MIPI (CSI) camera interface on the Zybo Z7 20 board to demonstrate using hardware acceleration and prepare you for the assignment. We'll be using an example project from Digilent as a starting point for our block diagram as it gives us the basic routing for the physical interface required to talk to the camera. We'll then move onto looking at how we can modify this block diagram to add our own logic into the camera's datapath.
 
 **Setup**
 
@@ -26,7 +26,7 @@ Now expand the `vid_io_out` bus and connect the `vid_active_video` to the `i_vid
 
 Under design sources, open the `ZyboZ7_A.xdc` file and uncomment the `btn[0]` port. Ensure that the name of this port (in the .xdc file) matches the name of the port that was made external in the block diagram. 
 
-Now click `Generate Block Diagram`, followed by `Generate Bitstream` this will prompt you to both run synthesis and implementation before generating the bitstream. Click ok to the options and wait for the design run to finish. After the run has completed, navigate to `File -> Export -> Export Hardware` making sure to tick the box that reads `Include Bitstream`. Accept the option that states the export location as `local to project`. After this has run, go to `File -> Launch SDK`. This will load the generated board's BSP and other supplementary files.
+Now click `Generate Block Design`, followed by `Generate Bitstream` this will prompt you to both run synthesis and implementation before generating the bitstream. Click ok to the options and wait for the design run to finish. After the run has completed, navigate to `File -> Export -> Export Hardware` making sure to tick the box that reads `Include Bitstream`. Accept the option that states the export location as `local to project`. After this has run, go to `File -> Launch SDK`. This will load the generated board's BSP and other supplementary files.
 
 Now that you are in the SDK, navigate to `File -> Import...`. Click the dropdown for `General` and choose `Existing Projects into Workspace`. Select the directory where you first unzipped the folders you downloaded and navigate to the `sdk` folder. Press OK and ensure that all the projects are selected. **Ensure that you click `Copy projects into workspace` before pressing finish**.
 
@@ -34,7 +34,7 @@ Now that the projects have been added to the workspace, you might need to rebuil
 
 Connect the Pcam-5C camera module to the Zybo (do not turn on the board before doing this!).You will now need to flash the bitstream to your Zybo (You should make sure your Zybo is connected at this point). 
 
-Now you can run the project on your Zybo the same as in previous labs; right click on the `pcam_vdma_hdmi` project and select `Run As -> Launch on Hardware` this will launch the SDK log and show you the project build log. If you now connect the Zybo's HDMI TX port to your monitor/screen, you should see the output from the camera. Press `BTN0` to swap the colour space and note what changes in the video feed. Additionally, if you connect the SDK serial terminal, you will be given some additional options for changing the settings of the camera.
+Now you can run the project on your Zybo the same as in previous labs; program the FPGA, right click on the `pcam_vdma_hdmi` project and select `Run As -> Launch on Hardware` this will launch the SDK log and show you the project build log. If you now connect the Zybo's HDMI TX port to your monitor/screen, you should see the output from the camera. Press `BTN0` to swap the colour space and note what changes in the video feed. Additionally, if you connect the SDK serial terminal, you will be given some additional options for changing the settings of the camera.
 
 You should now have a working project which you can use to start your assignment.
 
