@@ -10,7 +10,7 @@ Lab 3 makes use of the MIPI (CSI) camera interface on the Zybo Z7 20 board to de
 
 Navigate to the [Digilent PCAM-5C](https://github.com/Digilent/Zybo-Z7-20-pcam-5c/releases) example repository and download the .ZIP file for the **2017.4** release.
 
-Next extract this file to a known location on your H: drive, navigate to the `proj` folder and make a note of its location. Now open Vivado and click on the `TCL` console at the bottom of the welcome screen. Using the command `cd the_location_where_proj_is_saved` change the working directory of Vivado to this location. Now you can run the command `source ./create_project.tcl` which will generate the block diagram for the required hardware.
+Next extract this file to a known location on your H: drive, navigate to the `proj` folder and make a note of its location. Now open Vivado and click on the `TCL` console at the bottom of the welcome screen. Using the command `cd the_location_where_proj_is_saved` change the working directory of Vivado to this location. Now you can run the command `source ./create_project.tcl` which will generate the block diagram for the required hardware. *Note - If you are using Windows, you will need to replace the `\` in the path with `/` that you provide*
 
 <p align="center"> 
 <img src="img/pcam_0.png">
