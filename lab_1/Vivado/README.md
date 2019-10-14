@@ -11,34 +11,34 @@ Created an HDL project in Xilinx Vivado to instantiate the Processing Unit and t
 1. Open Xilinx Vivado 2017.2 (whichever version is available in the lab)
 2. Create an new Vivado Project
 
-   ![vivado_0](../img/vivado_0.png)
+   ![vivado_0](../resource/vivado_0.png)
 
    1. Select **RTL Project** and **Do not specify sources at this time** and press **Next**
 
-      ![vivado_1](../img/vivado_1.png)
+      ![vivado_1](../resource/vivado_1.png)
 
    2. Click on the **Boards** tab and scroll to find the **Zybo Z7-20**. Click **Next**. [Installing Boards](#Installing-Boards)
 
-      ![vivado_2](../img/vivado_2.png)
+      ![vivado_2](../resource/vivado_2.png)
 
    3. Accept these options by pressing **Finish**
 
 3. Create empty block design inside the new project
    1. Add the **ZYNQ7 Processing System** IP core and the **Processor System Reset** IP Core. Connect the *slowest_sync_clk* to the *M_AXI_GP0_ACLK* and the *FCLK_CLK0*. Also ensure that the *ext_reset_in* is connected to *FCLK_RESET0_N*. Run the **Block Automation**, accepting the default settings.
 
-      ![vivado_3](../img/vivado_3.png)
+      ![vivado_3](../resource/vivado_3.png)
 
       - We do not need to add any additional cores as we are only using the processing system in this lab. In future labs we will look at how to communicate between the PS and PL.
 
-      ![vivado_4](../img/vivado_4.png)
+      ![vivado_4](../resource/vivado_4.png)
 
    2. Validate, save and generate the block design
 
-      ![vivado_5](../img/vivado_5.png)
+      ![vivado_5](../resource/vivado_5.png)
 
    3. Create an HDL system wrapper (Right click on the block diagram, which will be called "design_1.bd" if you didn't rename it, under **Sources->Design Sources**)
 
-      ![vivado_6](../img/vivado_6.png)
+      ![vivado_6](../resource/vivado_6.png)
 
    4. Run Synthesis and Implementation to generate the netlist and floor planning
 
