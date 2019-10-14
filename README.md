@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src="lab_1/img/banner.png">
+<img src="lab_1/resource/banner.png">
 </p>
 
 # ES3F1 High Performance Embedded Systems Design Labs
