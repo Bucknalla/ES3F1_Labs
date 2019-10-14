@@ -23,7 +23,7 @@ Created an HDL project in Xilinx Vivado to instantiate the Processing Unit and t
 
 #### Vivado
 
-1. Open Xilinx Vivado 2017.2 (whichever version is available in the lab)
+1. Open Xilinx Vivado 2018.3 (whichever version is available in the lab)
 2. Create an new Vivado Project
 
    ![vivado_0](resource/vivado_0.png)
@@ -65,7 +65,7 @@ You are now ready to start an [SDK software project](#Xilinx-SDK-Setup) for the 
 
 #### Installing Boards (optional)
 
-**If required**, you may need to install board files in order to support the Zybo Z7 FPGA board. The board files folder can be found here: `C:\Xilinx\Vivado\2017.2\data\boards` (Change the version for your specific version of Vivado). By default this folder contains XML files for different FPGA boards manufactured by Xilinx.
+**If required**, you may need to install board files in order to support the Zybo Z7 FPGA board. The board files folder can be found here: `C:\Xilinx\Vivado\2018.3\data\boards` (Change the version for your specific version of Vivado). By default this folder contains XML files for different FPGA boards manufactured by Xilinx.
 
 XML files define different interfaces on the board. Interfaces such as Slide Switches, Push Buttons, LEDs, USB-UART, DDR Memory, Ethernet etc.
 
@@ -76,7 +76,7 @@ This zip file will contain a folder called new/board_files. Save this in your us
 
 1. Copy the contents of the board_files folder
 
-2. Navigate to the board_files folder in the Vivado Installation directory (`C:\Xilinx\Vivado\2015.1\data\boards\board_files`)
+2. Navigate to the board_files folder in the Vivado Installation directory (`C:\Xilinx\Vivado\2019.3\data\boards\board_files`)
 
 3. Paste the contents into the board_files folder
 
