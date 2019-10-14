@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include "xil_printf.h"
 
+#define SIZE 2
+
 void generate_array(/* ARRAY */)
 {
   /* Logic to generate array with rand() */
@@ -18,6 +20,21 @@ int main()
 {
   init_platform();
   xil_printf("Starting Program...");
+
+  /* Declaration of the matrices and instantiate into memory */
+  int rows = SIZE, cols = SIZE, i, j;
+  int **x, **y, **z;
+
+  x = malloc(rows * sizeof *x);
+  y = malloc(rows * sizeof *y);
+  z = malloc(rows * sizeof *x);
+
+  for (i = 0; i < rows; i++)
+  {
+    x[i] = malloc(cols * sizeof *x[i]);
+    y[i] = malloc(cols * sizeof *y[i]);
+    z[i] = malloc(cols * sizeof *z[i]);
+  }
 
   generate_array(/* ARRAY */);
 
