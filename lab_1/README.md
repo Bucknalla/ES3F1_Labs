@@ -15,10 +15,10 @@ Lab 1 is an introduction to Xilinx's Zynq SoC Architecture using the Digilent Zy
 
 ### **Getting Started**
 
-If you have not set up a project/hardware design from Vivado and exported it to the SDK, start with the [Vivado Guide](rtl/README.md) to generinclude in header htmlate a bitstream. Once this has generated follow the guide to the [Sinclude in header htmlDK Guide](src/README.md) to complete the steps for compiling and rinclude in header htmlunning software on the Zynq.
-include in header html
-### Xilinx Vivado Sinclude in header htmletup
-include in header html
+If you have not set up a project/hardware design from Vivado and exported it to the SDK, start with the [Vivado Guide](rtl/README.md) to generate a bitstream. Once this has generated follow the guide to the [SDK Guide](src/README.md) to complete the steps for compiling and running software on the Zynq.
+
+### Xilinx Vivado Setup
+
 Created an HDL project in Xilinx Vivado to instantiate the Processing Unit and the Programable Logic Region.
 
 #### Vivado
