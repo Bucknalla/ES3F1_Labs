@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src="../img/banner.png">
+<img src="../resource/banner.png">
 </p>
 
 # Xilinx Vivado Setup
