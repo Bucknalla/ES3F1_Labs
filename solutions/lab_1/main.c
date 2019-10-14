@@ -12,24 +12,21 @@
 #define MAX_VAL 10
 #define MIN_VAL 0
 
-void generate(int **array)
+void generate(int *array)
 {
   int i, j;
 
-  for (i = 0; i < SIZE; i++)
-  {
-    for (j = 0; j < SIZE; j++)
-    {
-      /* populate rows and columns with rand() values */
-      array[i][j] = rand() % (MAX_VAL + 1 - MIN_VAL) + MIN_VAL;
-      xil_printf("%d\t", array[i][j]);
+  for(i = 0; i < SIZE; i++) {
+    for(j = 0; j < SIZE; j++) {
+      array[i*SIZE + j] = rand() % (MAX_VAL + 1 - MIN_VAL) + MIN_VAL;
+      xil_printf("%d\t", array[i*SIZE + j]);
     }
     xil_printf("\n\r");
   }
   xil_printf("\n\r");
 };
 
-void multiply(int **array_x, int **array_y, int **array_z)
+void multiply(int *array_x, int *array_y, int *array_z)
 {
   int i, j, k;
 
@@ -37,13 +34,13 @@ void multiply(int **array_x, int **array_y, int **array_z)
   {
     for (j = 0; j < SIZE; j++)
     {
-      array_z[i][j] = 0;
+      array_z[i*SIZE + j] = 0;
       for (k = 0; k < SIZE; k++)
       {
-        array_z[i][j] += (array_x[i][k] * array_y[k][j]);
+        array_z[i*SIZE + j] += (array_x[i*SIZE + k] * array_y[k*SIZE + j]);
 
 #if defined(DEBUG)
-        xil_printf("z: %d = x: %d * y %d\n\r", array_x[i][j], array_x[i][k], array_y[k][j]);
+        xil_printf("z: %d = x: %d * y %d\n\r", array_x[i*SIZE + j], array_x[i*SIZE + k], array_y[k*SIZE + j]);
 #endif
       }
     }
@@ -62,19 +59,13 @@ int main()
   srand(tSeed);
 
   int rows = SIZE, cols = SIZE, i, j;
-  int **x, **y, **z;
+  // int **x, **y, **z;
 
   /* allocate the array in memory */
-  x = malloc(rows * sizeof *x);
-  y = malloc(rows * sizeof *y);
-  z = malloc(rows * sizeof *x);
+  int *x = (int *)malloc(rows * cols * sizeof(int));
+  int *y = (int *)malloc(rows * cols * sizeof(int));
+  int *z = (int *)malloc(rows * cols * sizeof(int));
 
-  for (i = 0; i < rows; i++)
-  {
-    x[i] = malloc(cols * sizeof *x[i]);
-    y[i] = malloc(cols * sizeof *y[i]);
-    z[i] = malloc(cols * sizeof *z[i]);
-  }
 
   xil_printf("Generating Matrices X, Y & Z...\n\n\r");
 
@@ -103,19 +94,15 @@ int main()
   {
     for (j = 0; j < SIZE; j++)
     {
-      xil_printf("%d\t", z[i][j]);
+      xil_printf("%d\t", z[i*SIZE + j]);
     }
     xil_printf("\n\r");
   }
 
   /* deallocate the array from memory */
-  for (i = 0; i < rows; i++)
-  {
-    free(x[i]);
-    free(y[i]);
-  }
   free(x);
   free(y);
+  free(z);
 
   /* 2 clock cycles per unit of time */
 #if !defined(DEBUG)
