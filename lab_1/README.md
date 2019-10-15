@@ -1,7 +1,7 @@
 ---
-title: "ES3F1 Lab 1"
+title: "ES3F1 - Lab 1"
 author: [Alex Bucknall, Suhaib Fahmy]
-date: "2019-10-14"
+date: "15-10-2019"
 keywords: [Vivado, Xilinx]
 ---
 
@@ -9,7 +9,7 @@ keywords: [Vivado, Xilinx]
 <img src="resource/banner.png">
 </p>
 
-### **ES3F1 Lab 1**
+### **Introduction**
 
 Lab 1 is an introduction to Xilinx's Zynq SoC Architecture using the Digilent Zybo Z7-20 series FPGA boards. We'll walk through setting up the processing system in hardware, exporting this from Vivado to the Xilinx SDK environment and writing some software in C to run on one of the ARM cores.
 
@@ -26,48 +26,52 @@ Created an HDL project in Xilinx Vivado to instantiate the Processing Unit and t
 1. Open Xilinx Vivado 2018.3 (whichever version is available in the lab)
 2. Create an new Vivado Project
 
-   ![vivado_0](resource/vivado_0.png)
+   ![Quick Start Menu](resource/vivado_0.png)
 
-   1. Select **RTL Project** and **Do not specify sources at this time** and press **Next**
+   2.1 Select **RTL Project** and **Do not specify sources at this time** and press **Next**
 
-      ![vivado_1](resource/vivado_1.png)
+   ![Project Selection](resource/vivado_1.png)
 
-   2. Click on the **Boards** tab and scroll to find the **Zybo Z7-20**. Click **Next**. If you cannot see the board please follow [installing boards](#Installing-Boards).
+   2.2 Click on the **Boards** tab and scroll to find the **Zybo Z7-20**. Click **Next**. If you cannot see the board please follow [installing boards](#Installing-Boards).
 
-      ![vivado_2](resource/vivado_2.png)
+   ![Board Selection](resource/vivado_2.png)
 
-   3. Accept these options by pressing **Finish**
+   2.3 Accept these options by pressing **Finish**
 
 3. Create empty block design inside the new project
-   1. Add the **ZYNQ7 Processing System** IP core and the **Processor System Reset** IP Core. Connect the *slowest_sync_clk* to the *M_AXI_GP0_ACLK* and the *FCLK_CLK0*. Also ensure that the *ext_reset_in* is connected to *FCLK_RESET0_N*. Run the **Block Automation**, accepting the default settings.
 
-      ![vivado_3](resource/vivado_3.png)
+   3.1 Add the **ZYNQ7 Processing System** IP core and the **Processor System Reset** IP Core. Connect the *slowest_sync_clk* to the *M_AXI_GP0_ACLK* and the *FCLK_CLK0*. Also ensure that the *ext_reset_in* is connected to *FCLK_RESET0_N*. Run the **Block Automation**, accepting the default settings.
 
-      - We do not need to add any additional cores as we are only using the processing system in this lab. In future labs we will look at how to communicate between the PS and PL.
+   ![Setup Block Design](resource/vivado_3.png)
 
-      ![vivado_4](resource/vivado_4.png)
+   > Note - We do not need to add any additional IP cores as we are only using the processing system in this lab. In future labs we will look at how to communicate between the PS and PL.
 
-   2. Validate, save and generate the block design
+   ![Add Processing System](resource/vivado_4.png)
 
-      ![vivado_5](resource/vivado_5.png)
+   3.2 Validate, save and generate the block design
 
-   3. Create an HDL system wrapper (Right click on the block diagram, which will be called "design_1.bd" if you didn't rename it, under **Sources->Design Sources**)
+   ![Generate Block Design](resource/vivado_5.png)
 
-      ![vivado_6](resource/vivado_6.png)
+   3.3 Create an HDL system wrapper (Right click on the block diagram, which will be called "design_1.bd" if you didn't rename it, under **Sources->Design Sources**)
 
-   4. Run Synthesis and Implementation to generate the netlist and floor planning
+   ![Export HDL Wrapper](resource/vivado_6.png)
 
-   5. You will now be prompted to generate Bitstream file, accept this option.
-   6. Export Hardware Design (**File->Export->Export Hardware**) including the generated bitstream file to SDK tool
-   7. Launch SDK (**File->Launch SDK**)
+4. Run Synthesis and Implementation to generate the netlist and floor planning
+
+5. You will now be prompted to generate Bitstream file, accept this option.
+6. Export Hardware Design (**File->Export->Export Hardware**) including the generated bitstream file to SDK tool
+7. Launch SDK (**File->Launch SDK**)
 
 You are now ready to start an [SDK software project](#Xilinx-SDK-Setup) for the Digilent Zybo Z7-20.
 
-#### Installing Boards (optional)
+> Note - You can also generate this block diagram by running `source generate.tcl` from the [generate script](Vivado/generate.tcl) in the Vivado directory. You should still follow the process to export the hardware wrapper, etc.
 
-**If required**, you may need to install board files in order to support the Zybo Z7 FPGA board. The board files folder can be found here: `C:\Xilinx\Vivado\2018.3\data\boards` (Change the version for your specific version of Vivado). By default this folder contains XML files for different FPGA boards manufactured by Xilinx.
+### Installing Boards (optional)
 
-XML files define different interfaces on the board. Interfaces such as Slide Switches, Push Buttons, LEDs, USB-UART, DDR Memory, Ethernet etc.
+
+**If required**, you may need to install board files in order to support the Zybo Z7 FPGA board. The board files folder can be found here: `C:\Xilinx\Vivado\2018.3\data\boards` (Change the version for your specific version of Vivado). By default, this folder contains XML files for different FPGA boards manufactured by Xilinx.
+
+These XML files define different interfaces on the board. Interfaces such as Switches, Push Buttons, LEDs, USB-UART, DDR Memory, Ethernet etc.
 
 Download and extract this Zip file from Digilent: https://github.com/Digilent/vivado-boards/archive/master.zip
 You can also check out the repository for the board files on github located here
@@ -76,7 +80,7 @@ This zip file will contain a folder called new/board_files. Save this in your us
 
 1. Copy the contents of the board_files folder
 
-2. Navigate to the board_files folder in the Vivado Installation directory (`C:\Xilinx\Vivado\2019.3\data\boards\board_files`)
+2. Navigate to the board_files folder in the Vivado Installation directory (`C:\Xilinx\Vivado\2018.3\data\boards\board_files`)
 
 3. Paste the contents into the board_files folder
 
@@ -119,11 +123,11 @@ Once you've exported your bitstream from Vivado and selected the "Launch SDK" op
 
 Successfully export a basic Processing System layer in hardware to the SDK in order to write a C program that computes the multiplication of two square matrices and returns the solution + the time taken for program execution.
 
-Follow the set up example in the rtl instructions, moving onto the src instructions when you've successfully exported the hardware bitstream.
+Follow the set up example in the Vivado instructions, moving onto the SDK instructions when you've successfully exported the hardware bitstream.
 
 To get started with a project in the Xilinx SDK, you may use the [template.c](src/template.c) as a starting point.
 
-1. Create an instance of a timer at the entry point of your program, using the "xtime_l.h" library. We'll use this later to time our multiplication function. The example below shows you how to set up an instance of the timer and how to use the `XTime_GetTime()` function.
+1. Create an instance of a timer at the entry point of your program, using the `xtime_l.h` library. We'll use this later to time our multiplication function. The example below shows you how to set up an instance of the timer and how to use the `XTime_GetTime()` function.
 
 ```C
 #include "xtime_l.h"
@@ -140,7 +144,7 @@ void example(){
 }
 ```
 
-- Hint: Think about how to measure a time interval. You will need to take a reading before and after the event, to find the difference. XTime is an unsigned 64 bit data type.
+- Hint: Think about how to measure a time interval. You will need to take a reading before and after the event, to find the difference. `XTime` is an unsigned 64 bit data type.
 
 2. Create a C function that takes a int pointer to a pointer and initialises each of the elements in the passed 2D array (**which represents a matrix**) with a random integer using the `rand()` function. Make sure to allocate memory for each 2D array (both rows and columns!). Don't forget to seed your `rand()` function with `srand(YOUR_SEED_VALUE)` to ensure that you don't get the same results each time the program runs.
 
@@ -160,7 +164,7 @@ void example(){
 
 7. Don't forget to deallocate memory and run `cleanup_platform()` at the end of your program to release any used instances from memory.
 
-Note - You can print data to the serial terminal (within the Xilinx SDK) using the "xil_printf.h" library. This function however does not support floating point values, so you will need to use printf() from the <stdio.h> library with standard "%f" formatting, instead.
+Note - You can print data to the serial terminal (within the Xilinx SDK) using the `xil_printf.h` library. This function however does not support floating point values, so you will need to use `printf()` from the `<stdio.h>` library with standard `%f` formatting, instead.
 
 ### **Extra**
 
