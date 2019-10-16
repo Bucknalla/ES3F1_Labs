@@ -10,3 +10,5 @@ Labs for ES3F1 High Performance Embedded Systems Design
 [Lab 3 - Setting up the PCAM-C5 and investigating video stream](/lab_3)
 
 ### Moodle Page
+
+https://moodle.warwick.ac.uk/course/view.php?id=32868
