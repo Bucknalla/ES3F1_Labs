@@ -59,13 +59,11 @@ int main()
   srand(tSeed);
 
   int rows = SIZE, cols = SIZE, i, j;
-  // int **x, **y, **z;
 
   /* allocate the array in memory */
   int *x = (int *)malloc(rows * cols * sizeof(int));
   int *y = (int *)malloc(rows * cols * sizeof(int));
   int *z = (int *)malloc(rows * cols * sizeof(int));
-
 
   xil_printf("Generating Matrices X, Y & Z...\n\n\r");
 
