@@ -22,19 +22,12 @@ int main()
   xil_printf("Starting Program...");
 
   /* Declaration of the matrices and instantiate into memory */
-  int rows = SIZE, cols = SIZE, i, j;
-  int **x, **y, **z;
+  int rows = SIZE, cols = SIZE;
 
-  x = malloc(rows * sizeof *x);
-  y = malloc(rows * sizeof *y);
-  z = malloc(rows * sizeof *x);
-
-  for (i = 0; i < rows; i++)
-  {
-    x[i] = malloc(cols * sizeof *x[i]);
-    y[i] = malloc(cols * sizeof *y[i]);
-    z[i] = malloc(cols * sizeof *z[i]);
-  }
+  /* allocate the array in memory */
+  int *x = (int *)malloc(rows * cols * sizeof(int));
+  int *y = (int *)malloc(rows * cols * sizeof(int));
+  int *z = (int *)malloc(rows * cols * sizeof(int));
 
   generate_array(/* ARRAY */);
 
