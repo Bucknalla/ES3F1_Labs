@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src="img/banner.png">
+<img src="resource/banner.png">
 </p>
 
 ### **ES3F1 Lab 3**
@@ -8,19 +8,24 @@ Lab 3 makes use of the MIPI (CSI) camera interface on the Zybo Z7 20 board to de
 
 **Setup**
 
-Navigate to the [Digilent PCAM-5C](https://github.com/Digilent/Zybo-Z7-20-pcam-5c/releases) example repository and download the .ZIP file for the **2017.4** release.
+Navigate to the [Digilent PCAM-5C](https://github.com/Digilent/Zybo-Z7-20-pcam-5c/releases/tag/v2018.2-2) example repository and download the .ZIP file for the **2018.2** release.
 
 Next extract this file to a known location on your H: drive, navigate to the `proj` folder and make a note of its location. Now open Vivado and click on the `TCL` console at the bottom of the welcome screen. Using the command `cd the_location_where_proj_is_saved` change the working directory of Vivado to this location. Now you can run the command `source ./create_project.tcl` which will generate the block diagram for the required hardware. *Note - If you are using Windows, you will need to replace the `\` in the path with `/` that you provide*
 
-<p align="center"> 
-<img src="img/pcam_0.png">
-</p>
+<!-- <p align="center"> 
+<img src="resource/pcam_0.png">
+</p> -->
+
+![PCam Block Diagram](resource/pcam_0.png)
 
 Add a new design source to the Vivado project, similar to how we added Verilog source files in ES3B2. Use the file (in the rtl directory) called [colour_change.v](rtl/colour_change.v). This files contains a simple example for how to change the RGB data stream and pass through the Hsync and Vsync signals to the required outputs. Now right click the Verilog file and click `Add Modules to Design`. This will place your module into the block diagram such that you can connect it to other ip modules. Locate the `AXI4-Stream to Video Out` and the `RGB to DVI Encoder (Source)` modules. Delete the connection that joins the `vid_io_out` and `RBG` buses; this is where out IP will be placed.
 
-<p align="center"> 
-<img src="img/pcam_1.png">
-</p>
+<!-- <p align="center"> 
+<img src="resource/pcam_1.png">
+</p> -->
+
+![Make Port External](resource/pcam_1.png)
+
 
 Now expand the `vid_io_out` bus and connect the `vid_active_video` to the `i_vid_VDE` port. Do the same for `vid_data`, `vid_hsync` and `vid_vsync` to their respective ports on the `colour_change` module. Then connect the outputs from the `colour_change` module to the `RGB to DVI Video Encoder (Source)`. The final step is to right click the `btn` port and make it external. This allows us to connect it to the button in the constraints file.
 

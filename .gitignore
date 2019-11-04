@@ -1,2 +1,7 @@
 */resource
 !*.png
+es3f1_lab*
+.Xil
+*.jou
+*.log
+*.vscode
