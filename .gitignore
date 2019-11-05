@@ -1,5 +1,11 @@
-*/resource
 !*.png
+*/resource/examples
+._*
+*.tex
+LICENSE
+banner.png
+*.tar.gz
+CHANGELOG.md
 es3f1_lab*
 .Xil
 *.jou
