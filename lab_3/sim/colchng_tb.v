@@ -60,7 +60,7 @@ initial begin
     @(posedge n_rst)
     while (!$feof(infile)) begin
         @(posedge clk)
-        if(!i_vid_VDE) begin
+        if(i_vid_VDE) begin
             r = $fscanf(infile,"%d %d %d\n", i_vid_data[23:16], i_vid_data[15:8], i_vid_data[7:0]);
         end
     end
@@ -72,11 +72,9 @@ initial begin
     $dumpfile(`DUMPSTR(`VCD_OUTPUT));
     $dumpvars(0, colchng_tb);
     outfile = $fopen("pixelsout.txt","w");
-    // @(posedge n_rst)
-    $fwrite(outfile,"%d %d %d\n", o_vid_data[23:16], o_vid_data[15:8], o_vid_data[7:0]);
     while (!$feof(outfile)) begin
     @(posedge clk)
-        if(!o_vid_VDE) $fwrite(outfile,"%d %d %d\n", o_vid_data[23:16], o_vid_data[15:8], o_vid_data[7:0]);
+        if(o_vid_VDE) $fwrite(outfile,"%d %d %d\n", o_vid_data[23:16], o_vid_data[15:8], o_vid_data[7:0]);
     end
     $fclose(outfile);
 end
