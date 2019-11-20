@@ -11,3 +11,4 @@ es3f1_lab*
 *.jou
 *.log
 *.vscode
+!lab_3/resource/banner.png
