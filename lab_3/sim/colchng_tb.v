@@ -50,7 +50,7 @@ end
 always @ * begin
     i_vid_hsync = ((hpix_cnt >= 88) && (hpix_cnt <= 131));
     i_vid_vsync = ((vpix_cnt >= 4) && (vpix_cnt <= 8));
-    i_vid_VDE = ((hpix_cnt >= 0) && (hpix_cnt <= 279)) || ((vpix_cnt >= 0) && (vpix_cnt <= 44));
+    i_vid_VDE = ~(((hpix_cnt >= 0) && (hpix_cnt <= 279)) || ((vpix_cnt >= 0) && (vpix_cnt <= 44)));
 end
 
 always #5 clk = !clk;
